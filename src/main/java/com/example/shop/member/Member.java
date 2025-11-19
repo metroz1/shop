@@ -1,11 +1,13 @@
 package com.example.shop.member;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import lombok.Data;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Data
+@Schema(description = "유저 정보")
 @Entity
 @Table(name = "\"member\"", schema = "public")
 public class Member {
@@ -99,10 +101,21 @@ public class Member {
 
     @PreUpdate
     public void preUpdate() {
+
         modifyDt = LocalDateTime.now();
         if (modifyId == null) {
             modifyId = id;
         }
+    }
+
+    public void updateMember(MemberRequest request) {
+
+        this.email = request.email();
+        this.name = request.name();
+        this.phone = request.phone();
+        this.password = request.password();
+        this.saltKey = request.saltKey();
+        this.flag = request.flag();
     }
 
 }
