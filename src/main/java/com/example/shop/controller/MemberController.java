@@ -28,33 +28,28 @@ public class MemberController {
     @GetMapping
     public ResponseEntity<MemberListResponse> findAll() {
 
-        MemberListResponse memberListResponse = memberService.getAll();
-
-        return new ResponseEntity<>(HttpStatus.OK.value(), memberListResponse, memberListResponse.count());
+        return memberService.getAll();
     }
 
     @Operation(summary = "회원 생성", description = "새로운 회원을 등록합니다.")
     @PostMapping
     public ResponseEntity<MemberListResponse> create(@RequestBody MemberRequest request) {
 
-        MemberListResponse memberListResponse = memberService.createMember(request);
-
-        return new ResponseEntity<>(HttpStatus.OK.value(), memberListResponse, memberListResponse.count());
+        return memberService.createMember(request);
     }
 
+    @Operation(summary = "회원 정보 수정", description = "기존 회원 정보를 수정합니다.")
     @PutMapping("{id}")
     public ResponseEntity<MemberListResponse> update(@RequestBody MemberRequest request, @PathVariable String id) {
 
-        MemberListResponse memberListResponse = memberService.updateMember(request, id);
 
-        return new ResponseEntity<>(HttpStatus.OK.value(), memberListResponse, memberListResponse.count());
+        return memberService.updateMember(request, id);
     }
 
+    @Operation(summary = "회원 생성", description = "새로운 회원을 등록합니다.")
     @DeleteMapping("{id}")
-    public ResponseEntity<Void> delete(@PathVariable String id) {
+    public ResponseEntity<MemberListResponse> delete(@PathVariable String id) {
 
-        memberService.deleteMember(id);
-
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT.value(), null, 0L);
+        return memberService.deleteMember(id);
     }
 }
