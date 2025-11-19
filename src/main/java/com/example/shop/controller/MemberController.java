@@ -46,7 +46,7 @@ public class MemberController {
         return memberService.updateMember(request, id);
     }
 
-    @Operation(summary = "회원 생성", description = "새로운 회원을 등록합니다.")
+    @Operation(summary = "회원 삭제", description = "기존 회원 정보를 삭제합니다.")
     @DeleteMapping("{id}")
     public ResponseEntity<MemberListResponse> delete(@PathVariable String id) {
 
