@@ -1,4 +1,7 @@
-package com.example.shop.member;
+package com.example.shop.member.presentation.dto;
+
+import com.example.shop.member.domain.Member;
+import com.example.shop.member.application.dto.MemberResponse;
 
 import java.util.List;
 

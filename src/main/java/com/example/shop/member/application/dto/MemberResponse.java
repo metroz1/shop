@@ -1,5 +1,6 @@
-package com.example.shop.member;
+package com.example.shop.member.application.dto;
 
+import com.example.shop.member.domain.Member;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Builder;
 
