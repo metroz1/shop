@@ -1,5 +1,6 @@
-package com.example.shop.member;
+package com.example.shop.member.domain;
 
+import com.example.shop.member.application.dto.MemberCommand;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -48,7 +49,7 @@ public class Member {
     public Member() {
     }
 
-    public Member(UUID id,
+    private Member(UUID id,
                   String email,
                   String name,
                   String password,
@@ -108,7 +109,18 @@ public class Member {
         }
     }
 
-    public void updateMember(MemberRequest request) {
+    public static Member create(
+            String email,
+            String name,
+            String password,
+            String phone,
+            String saltKey,
+            String flag
+    ) {
+        return new Member(UUID.randomUUID(), email, name, password, phone, saltKey, flag);
+    }
+
+    public void updateMember(MemberCommand request) {
 
         this.email = request.email();
         this.name = request.name();
