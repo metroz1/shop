@@ -15,6 +15,9 @@ public class Product {
     @Id
     private UUID id;
 
+    @Column(name = "seller_id", nullable = false)
+    private UUID sellerId;
+
     @Column(nullable = false, length = 100)
     private String name;
 

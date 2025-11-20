@@ -35,6 +35,7 @@ public class ProductService {
     public ResponseEntity<ProductInfo> createProduct(ProductCommand command) {
 
         Product product = Product.create(
+                command.sellerId(),
                 command.name(),
                 command.description(),
                 command.price(),
