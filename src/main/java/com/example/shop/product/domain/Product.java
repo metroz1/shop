@@ -49,12 +49,14 @@ public class Product {
     }
 
     private Product(UUID id,
+                    UUID sellerId,
                     String name,
                     String description,
                     BigDecimal price,
                     Integer stock,
                     String status) {
         this.id = id;
+        this.sellerId = sellerId;
         this.name = name;
         this.description = description;
         this.price = price;
@@ -62,13 +64,14 @@ public class Product {
         this.status = status;
     }
 
-    public static Product create(String name,
+    public static Product create(UUID sellerId,
+                                 String name,
                                  String description,
                                  BigDecimal price,
                                  Integer stock,
                                  String status,
                                  UUID creatorId) {
-        Product product = new Product(UUID.randomUUID(), name, description, price, stock, status);
+        Product product = new Product(UUID.randomUUID(), sellerId, name, description, price, stock, status);
         product.regId = creatorId;
         product.modifyId = creatorId;
         return product;

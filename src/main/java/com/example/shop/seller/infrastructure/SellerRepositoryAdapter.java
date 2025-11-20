@@ -25,9 +25,9 @@ public class SellerRepositoryAdapter implements SellerRepository {
     }
 
     @Override
-    public Optional<Seller> findById(String id) {
+    public Optional<Seller> findById(UUID id) {
 
-        return sellerJpaRepository.findById(UUID.fromString(id));
+        return sellerJpaRepository.findById(id);
     }
 
     @Override
@@ -37,10 +37,10 @@ public class SellerRepositoryAdapter implements SellerRepository {
     }
 
     @Override
-    public void deleteById(String id) {
+    public void deleteById(UUID id) {
 
-        sellerJpaRepository.findById(UUID.fromString(id)).orElseThrow(() -> new IllegalArgumentException("삭제 대상 판매자가 존재하지 않습니다."));
+        sellerJpaRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("삭제 대상 판매자가 존재하지 않습니다."));
 
-        sellerJpaRepository.deleteById(UUID.fromString(id));
+        sellerJpaRepository.deleteById(id);
     }
 }
