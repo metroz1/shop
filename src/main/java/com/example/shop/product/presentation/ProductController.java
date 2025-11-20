@@ -5,12 +5,14 @@ import com.example.shop.product.application.ProductService;
 import com.example.shop.product.application.dto.ProductInfo;
 import com.example.shop.product.presentation.dto.ProductRequest;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Tag(name = "Product Controller", description = "상품 관리 API")
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("${api.v1}/products")
