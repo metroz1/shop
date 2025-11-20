@@ -3,11 +3,12 @@ package com.example.shop.member.domain;
 import com.example.shop.member.application.dto.MemberCommand;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.Getter;
+
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-@Data
+@Getter
 @Schema(description = "유저 정보")
 @Entity
 @Table(name = "\"member\"", schema = "public")
