@@ -27,7 +27,7 @@ public class SellerService {
 
         List<SellerInfo> sellerInfos = page.stream().map(SellerInfo::from).toList();
 
-        return new ResponseEntity<>(HttpStatus.OK.value(), sellerInfos, sellerInfos.size());
+        return new ResponseEntity<>(HttpStatus.OK.value(), sellerInfos, page.getTotalElements());
     }
 
     public ResponseEntity<SellerInfo> createSeller(SellerCommand command) {

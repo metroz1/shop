@@ -5,6 +5,8 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 .gitignore
+.env
+src/main/resources/application.properties
 
 ### STS ###
 .apt_generated

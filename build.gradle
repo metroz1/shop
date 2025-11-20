@@ -28,6 +28,7 @@ dependencies {
     runtimeOnly 'org.postgresql:postgresql'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
+    implementation "me.paulschwarz:spring-dotenv:4.0.0"
 }
 
 tasks.named('test') {

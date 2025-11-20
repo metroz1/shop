@@ -28,7 +28,7 @@ public class ProductService {
                 .map(ProductInfo::from)
                 .toList();
 
-        return new ResponseEntity<>(HttpStatus.OK.value(), products, products.size());
+        return new ResponseEntity<>(HttpStatus.OK.value(), products, page.getTotalElements());
     }
 
 

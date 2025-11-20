@@ -26,7 +26,7 @@ public class MemberService {
 
         List<MemberInfo> memberInfos = page.stream().map(MemberInfo::from).toList();
 
-        return new ResponseEntity<>(HttpStatus.OK.value(), memberInfos, memberInfos.size());
+        return new ResponseEntity<>(HttpStatus.OK.value(), memberInfos, page.getTotalElements());
     }
 
     public ResponseEntity<MemberInfo> createMember(MemberCommand request) {
