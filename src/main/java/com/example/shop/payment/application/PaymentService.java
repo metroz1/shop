@@ -2,10 +2,14 @@ package com.example.shop.payment.application;
 
 import com.example.shop.common.ResponseEntity;
 import com.example.shop.payment.application.dto.PaymentCommand;
+import com.example.shop.payment.application.dto.PaymentFailureCommand;
+import com.example.shop.payment.application.dto.PaymentFailureInfo;
 import com.example.shop.payment.application.dto.PaymentInfo;
 import com.example.shop.payment.client.TossPaymentClient;
 import com.example.shop.payment.client.TossPaymentResponse;
 import com.example.shop.payment.domain.Payment;
+import com.example.shop.payment.domain.PaymentFailure;
+import com.example.shop.payment.domain.PaymentFailureRepository;
 import com.example.shop.payment.domain.PaymentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -21,7 +25,7 @@ import java.util.List;
 public class PaymentService {
 
     private final PaymentRepository paymentRepository;
-//    private final PaymentFailureRepository paymentFailureRepository;
+    private final PaymentFailureRepository paymentFailureRepository;
 //    private final SellerSettlementRepository sellerSettlementRepository;
     private final TossPaymentClient tossPaymentClient;
 //    private final OrderService orderService;
@@ -55,6 +59,19 @@ public class PaymentService {
     }
 
 
+    public ResponseEntity<PaymentFailureInfo> recordFailure(PaymentFailureCommand command) {
 
+        PaymentFailure paymentFailure = PaymentFailure.from(
+                command.orderId(),
+                command.paymentKey(),
+                command.errorCode(),
+                command.errorMessage(),
+                command.amount(),
+                command.rawPayload()
+        );
 
+        PaymentFailureInfo paymentFailureInfo = PaymentFailureInfo.from(paymentFailureRepository.save(paymentFailure));
+
+        return new ResponseEntity<>(HttpStatus.OK.value(), paymentFailureInfo, 1);
+    }
 }
