@@ -1,7 +1,6 @@
 package com.example.shop.seller.application;
 
 import com.example.shop.common.ResponseEntity;
-import com.example.shop.member.application.dto.MemberInfo;
 import com.example.shop.seller.application.dto.SellerCommand;
 import com.example.shop.seller.application.dto.SellerInfo;
 import com.example.shop.seller.domain.Seller;
