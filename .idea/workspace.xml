@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="36fb02fa-d9f0-4237-b0ff-6b192dbb588f" name="Changes" comment="refactor : MSA 설계 적용 중&#10;- shop에서 member-service 분리">
+      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/ShopApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/common/ResponseEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/config/BatchAsyncConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/config/BatchSchemaInitializerConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/config/RestTemplateConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/config/WebConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/payment/application/PaymentService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/payment/application/dto/PaymentCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/payment/application/dto/PaymentFailureCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/payment/application/dto/PaymentFailureInfo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/payment/application/dto/PaymentInfo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/payment/client/TossPaymentClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/payment/client/TossPaymentResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/payment/domain/Payment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/payment/domain/PaymentFailure.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/payment/domain/PaymentFailureRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/payment/domain/PaymentRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/payment/domain/PaymentStatus.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/payment/infrastructure/PaymentFailureJpaRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/payment/infrastructure/PaymentFailureRepositoryAdapter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/payment/infrastructure/PaymentJpaRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/payment/infrastructure/PaymentRepositoryAdapter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/payment/presentation/PaymentController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/payment/presentation/dto/PaymentFailReqeust.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/payment/presentation/dto/PaymentRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/product/application/ProductService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/product/application/dto/ProductCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/product/application/dto/ProductInfo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/product/domain/Product.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/product/domain/ProductRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/product/infrastructure/ProductJpaRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/product/infrastructure/ProductRepositoryAdapter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/product/presentation/ProductController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/product/presentation/dto/ProductRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/seller/application/SellerService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/seller/application/dto/SellerCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/seller/application/dto/SellerInfo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/seller/domain/Seller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/seller/domain/SellerRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/seller/infrastructure/SellerJpaRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/seller/infrastructure/SellerRepositoryAdapter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/seller/presentation/SellerController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/seller/presentation/dto/SellerRequest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/settlement/batch/SellerSettlementBatchConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/settlement/batch/SellerSettlementScheduler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/settlement/domain/SellerSettlement.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/settlement/domain/SellerSettlementRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/settlement/domain/SettlementStatus.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/settlement/infrastructure/SellerSettlementJpaRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/settlement/infrastructure/SellerSettlementRepositoryAdapter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/shop/settlement/presentation/SettlementJobController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/shop/ShopApplicationTests.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/member-service">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/shop-service">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="shop" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="shop" type="f1a62948:ProjectNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Record" />
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="seller" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;metroz1&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/metroz1/shop.git&quot;,
+    &quot;accountId&quot;: &quot;0e39e1f8-0c89-46f0-b375-4ecb6828cf34&quot;
+  },
+  &quot;recentNewPullRequestHead&quot;: {
+    &quot;server&quot;: {
+      &quot;useHttp&quot;: false,
+      &quot;host&quot;: &quot;github.com&quot;,
+      &quot;port&quot;: null,
+      &quot;suffix&quot;: null
+    },
+    &quot;owner&quot;: &quot;metroz1&quot;,
+    &quot;repository&quot;: &quot;shop&quot;
+  }
+}</component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="35fpVbp4NuOXsAhG2qbXJbLOphQ" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.Build shop.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Download Sources.executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Spring Boot.ShopApplication.executor&quot;: &quot;Run&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/js/Documents/shop&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;caaec74359b56b9cc9e57fe8bdf9be2b&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
+    ]
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.example.shop.payment.domain" />
+      <recent name="com.example.shop.payment.application.dto" />
+      <recent name="com.example.shop.payment.presentation.dto" />
+      <recent name="com.example.shop.seller.application.dto" />
+      <recent name="com.example.shop.seller.presentation.dto" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.ShopApplication">
+    <configuration name="shop [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="dependencies" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="Python.FlaskServer">
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration name="MemberServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="member-service.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.memberservice.MemberServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ShopApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="shop.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.shop.ShopApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Tox" factoryName="Tox">
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Doctests">
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Gradle.shop [dependencies]" />
+      <item itemvalue="Spring Boot.MemberServiceApplication" />
+      <item itemvalue="Spring Boot.ShopApplication" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.shop [dependencies]" />
+        <item itemvalue="Gradle.shop [dependencies]" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.27397.103" />
+        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-IU-252.27397.103" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="36fb02fa-d9f0-4237-b0ff-6b192dbb588f" name="Changes" comment="" />
+      <created>1763511006026</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1763511006026</updated>
+      <workItem from="1763511007628" duration="3000" />
+      <workItem from="1763511049831" duration="4090000" />
+      <workItem from="1763519341741" duration="19000" />
+      <workItem from="1763519370086" duration="9000" />
+      <workItem from="1763519433552" duration="319000" />
+      <workItem from="1763519784903" duration="103000" />
+      <workItem from="1763528761481" duration="3720000" />
+      <workItem from="1763532515733" duration="78000" />
+      <workItem from="1763532611294" duration="16503000" />
+      <workItem from="1763602596149" duration="569000" />
+      <workItem from="1763603191453" duration="1052000" />
+      <workItem from="1763604268882" duration="12191000" />
+      <workItem from="1763618385614" duration="12000" />
+      <workItem from="1763618410953" duration="227000" />
+      <workItem from="1763618659448" duration="15545000" />
+      <workItem from="1763683834118" duration="4169000" />
+      <workItem from="1763690703961" duration="19030000" />
+      <workItem from="1763714190511" duration="67000" />
+      <workItem from="1763714664855" duration="2021000" />
+      <workItem from="1763827200517" duration="239000" />
+      <workItem from="1763950607585" duration="3474000" />
+      <workItem from="1763954296077" duration="8020000" />
+      <workItem from="1763969564690" duration="637000" />
+      <workItem from="1763970217778" duration="120000" />
+    </task>
+    <task id="LOCAL-00001" summary="first commit">
+      <created>1763511235304</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1763511235304</updated>
+    </task>
+    <task id="LOCAL-00002" summary="feat: 회원 관리 API 및 도메인 구현&#10;&#10;- Member 엔티티, 리포지토리, DTO 추가&#10;- MemberController 생성 (조회, 생성, 수정 API)&#10;- Swagger API 명세(@Operation) 적용">
+      <option name="closed" value="true" />
+      <created>1763537183370</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1763537183370</updated>
+    </task>
+    <task id="LOCAL-00003" summary="feat: 회원에 대한 컨트롤러, 서비스 분리">
+      <option name="closed" value="true" />
+      <created>1763541395101</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1763541395101</updated>
+    </task>
+    <task id="LOCAL-00004" summary="feat: 회원에 대한 컨트롤러, 서비스 로직 수정">
+      <option name="closed" value="true" />
+      <created>1763541952158</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1763541952158</updated>
+    </task>
+    <task id="LOCAL-00005" summary="chore: 스웨거 description 수정">
+      <option name="closed" value="true" />
+      <created>1763542177650</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1763542177650</updated>
+    </task>
+    <task id="LOCAL-00006" summary="refactor: migrate member handling from MVC to DDD layers">
+      <option name="closed" value="true" />
+      <created>1763602121991</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1763602121991</updated>
+    </task>
+    <task id="LOCAL-00007" summary="feat: 회원 관리 API 및 도메인 구현&#10;&#10;- Product 엔티티, 리포지토리, DTO 추가&#10;- ProductController 생성 (조회, 생성, 수정 API)&#10;- Swagger API 명세(@Operation) 적용">
+      <option name="closed" value="true" />
+      <created>1763608179630</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1763608179630</updated>
+    </task>
+    <task id="LOCAL-00008" summary="feat: 판매자(Seller) 관리 기능 구현&#10;&#10;- 판매자 도메인 모델(Seller) 및 Repository 인터페이스 정의&#10;- 판매자 등록 및 목록 조회 비즈니스 로직 구현 (SellerService)&#10;- 판매자 관리 API 엔드포인트 추가 (SellerController)&#10;- JPA 기반 데이터 접근 계층 구현 (SellerJpaRepository, Adapter)&#10;- 관련 DTO(Command, Info, Request) 추가">
+      <option name="closed" value="true" />
+      <created>1763610393715</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1763610393715</updated>
+    </task>
+    <task id="LOCAL-00009" summary="feat: 상품(Product)에 판매자(Seller) 연관 관계 필드 추가&#10;&#10;- Product 도메인에 sellerId 필드 추가&#10;- 상품 생성 시 판매자 ID를 받도록 ProductRequest 및 ProductCommand 수정&#10;- 응답 정보에 판매자 ID를 포함하도록 ProductInfo 수정&#10;- ProductService의 상품 생성 로직에 sellerId 반영">
+      <option name="closed" value="true" />
+      <created>1763610754835</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1763610754835</updated>
+    </task>
+    <task id="LOCAL-00010" summary="feat: 판매자(Seller) 수정/삭제 기능 구현 및 Product/Seller 리팩토링&#10;&#10;- SellerService 및 Controller에 판매자 정보 수정(Update) 및 삭제(Delete) 로직 추가&#10;- SellerRepository ID 타입을 String에서 UUID로 변경하여 일관성 확보&#10;- Controller에 Swagger 문서화를 위한 @Operation 어노테이션 추가&#10;- Product 생성자 및 팩토리 메서드에서 sellerId를 필수 인자로 처리하도록 수정">
+      <option name="closed" value="true" />
+      <created>1763614280729</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1763614280729</updated>
+    </task>
+    <task id="LOCAL-00011" summary="feat: 토스 결제 기능 구현 및 Payment 도메인 추가&#10;&#10;- Payment 도메인(Entity, Repository, Service, Controller) 신규 구현&#10;- Toss Payments API 연동을 위한 Client 및 DTO 추가&#10;- 외부 API 호출을 위한 RestTemplateConfig 설정 추가&#10;- 결제 로직 연동을 위해 Member, Product, Seller 서비스 수정&#10;- 프로젝트 설정(build.gradle, application.properties) 업데이트">
+      <option name="closed" value="true" />
+      <created>1763628666172</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1763628666172</updated>
+    </task>
+    <task id="LOCAL-00012" summary="- 결제 실패 내역을 저장하는 PaymentFailure 엔티티 및 Repository 구현&#10;- PaymentService에 결제 실패 기록 로직(recordFailure) 추가&#10;- PaymentController에 실패 처리 API(/fail) 및 Swagger 문서화(@Operation) 적용&#10;- CORS 허용 및 요청 로깅 인터셉터를 포함한 WebConfig 구성&#10;- 관련 DTO(PaymentFailureCommand, PaymentFailureInfo 등) 추가">
+      <option name="closed" value="true" />
+      <created>1763695788779</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1763695788779</updated>
+    </task>
+    <task id="LOCAL-00013" summary="refactor : MSA 설계 적용 중&#10;- shop에서 member-service 분리">
+      <option name="closed" value="true" />
+      <created>1763969745271</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1763969745271</updated>
+    </task>
+    <task id="LOCAL-00014" summary="refactor : MSA 설계 적용 중&#10;- shop에서 member-service 분리">
+      <option name="closed" value="true" />
+      <created>1763970269926</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1763970269926</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="first commit" />
+    <MESSAGE value="feat: 회원 관리 API 및 도메인 구현&#10;&#10;- Member 엔티티, 리포지토리, DTO 추가&#10;- MemberController 생성 (조회, 생성, 수정 API)&#10;- Swagger API 명세(@Operation) 적용" />
+    <MESSAGE value="feat: 회원에 대한 컨트롤러, 서비스 분리" />
+    <MESSAGE value="feat: 회원에 대한 컨트롤러, 서비스 로직 수정" />
+    <MESSAGE value="chore: 스웨거 description 수정" />
+    <MESSAGE value="refactor: migrate member handling from MVC to DDD layers" />
+    <MESSAGE value="feat: 회원 관리 API 및 도메인 구현&#10;&#10;- Product 엔티티, 리포지토리, DTO 추가&#10;- ProductController 생성 (조회, 생성, 수정 API)&#10;- Swagger API 명세(@Operation) 적용" />
+    <MESSAGE value="feat: 판매자(Seller) 관리 기능 구현&#10;&#10;- 판매자 도메인 모델(Seller) 및 Repository 인터페이스 정의&#10;- 판매자 등록 및 목록 조회 비즈니스 로직 구현 (SellerService)&#10;- 판매자 관리 API 엔드포인트 추가 (SellerController)&#10;- JPA 기반 데이터 접근 계층 구현 (SellerJpaRepository, Adapter)&#10;- 관련 DTO(Command, Info, Request) 추가" />
+    <MESSAGE value="feat: 상품(Product)에 판매자(Seller) 연관 관계 필드 추가&#10;&#10;- Product 도메인에 sellerId 필드 추가&#10;- 상품 생성 시 판매자 ID를 받도록 ProductRequest 및 ProductCommand 수정&#10;- 응답 정보에 판매자 ID를 포함하도록 ProductInfo 수정&#10;- ProductService의 상품 생성 로직에 sellerId 반영" />
+    <MESSAGE value="feat: 판매자(Seller) 수정/삭제 기능 구현 및 Product/Seller 리팩토링&#10;&#10;- SellerService 및 Controller에 판매자 정보 수정(Update) 및 삭제(Delete) 로직 추가&#10;- SellerRepository ID 타입을 String에서 UUID로 변경하여 일관성 확보&#10;- Controller에 Swagger 문서화를 위한 @Operation 어노테이션 추가&#10;- Product 생성자 및 팩토리 메서드에서 sellerId를 필수 인자로 처리하도록 수정" />
+    <MESSAGE value="feat: 토스 결제 기능 구현 및 Payment 도메인 추가&#10;&#10;- Payment 도메인(Entity, Repository, Service, Controller) 신규 구현&#10;- Toss Payments API 연동을 위한 Client 및 DTO 추가&#10;- 외부 API 호출을 위한 RestTemplateConfig 설정 추가&#10;- 결제 로직 연동을 위해 Member, Product, Seller 서비스 수정&#10;- 프로젝트 설정(build.gradle, application.properties) 업데이트" />
+    <MESSAGE value="- 결제 실패 내역을 저장하는 PaymentFailure 엔티티 및 Repository 구현&#10;- PaymentService에 결제 실패 기록 로직(recordFailure) 추가&#10;- PaymentController에 실패 처리 API(/fail) 및 Swagger 문서화(@Operation) 적용&#10;- CORS 허용 및 요청 로깅 인터셉터를 포함한 WebConfig 구성&#10;- 관련 DTO(PaymentFailureCommand, PaymentFailureInfo 등) 추가" />
+    <MESSAGE value="refactor : MSA 설계 적용 중&#10;- shop에서 member-service 분리" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor : MSA 설계 적용 중&#10;- shop에서 member-service 분리" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+  <component name="github-copilot-workspace">
+    <instructionFileLocations>
+      <option value=".github/instructions" />
+    </instructionFileLocations>
+    <promptFileLocations>
+      <option value=".github/prompts" />
+    </promptFileLocations>
+  </component>
+</project>
