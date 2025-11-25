@@ -23,9 +23,6 @@ public record MemberResponse(
         @Schema(description = "전화번호", example = "010-1234-5678")
         String phone,
 
-        @Schema(description = "계정 활성화 상태 플래그")
-        String flag,
-
         @Schema(description = "등록자 ID")
         UUID regId,
 
@@ -44,7 +41,6 @@ public record MemberResponse(
                 .email(member.getEmail())
                 .name(member.getName())
                 .phone(member.getPhone())
-                .flag(member.getFlag())
                 .regId(member.getRegId())
                 .regDt(member.getRegDt())
                 .modifyId(member.getModifyId())

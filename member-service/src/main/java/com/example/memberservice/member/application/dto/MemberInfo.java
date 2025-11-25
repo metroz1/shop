@@ -10,7 +10,6 @@ public record MemberInfo(
         String email,
         String name,
         String phone,
-        String flag,
         LocalDateTime regDt,
         LocalDateTime modifyDt
 ) {
@@ -22,7 +21,6 @@ public record MemberInfo(
                 member.getEmail(),
                 member.getName(),
                 member.getPhone(),
-                member.getFlag(),
                 member.getRegDt(),
                 member.getModifyDt()
         );

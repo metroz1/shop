@@ -1,5 +1,4 @@
-package com.example.shop.config;
-
+package com.example.memberservice.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
@@ -17,11 +16,10 @@ public class WebConfig implements WebMvcConfigurer{
         registry.addMapping(api + "/**")
                 .allowedOriginPatterns("*")
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
-                .allowedHeaders("*")
-                .allowCredentials(true).maxAge(3600);
+                .allowedHeaders("Custom-Header")
+                .allowCredentials(true);
+
 
         WebMvcConfigurer.super.addCorsMappings(registry);
     }
-
-
 }

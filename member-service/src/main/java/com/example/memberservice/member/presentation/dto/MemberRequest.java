@@ -7,13 +7,11 @@ public record MemberRequest(
         String email,
         String name,
         String password,
-        String phone,
-        String saltKey,
-        String flag
+        String phone
 ) {
 
     public MemberCommand toCommand() {
 
-        return new MemberCommand(email, name, password, phone, saltKey, flag);
+        return new MemberCommand(email, name, password, phone);
     }
 }

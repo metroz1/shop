@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.UUID;
 
 @Getter
@@ -51,12 +52,13 @@ public class Member {
     }
 
     private Member(UUID id,
-                  String email,
-                  String name,
-                  String password,
-                  String phone,
-                  String saltKey,
-                  String flag) {
+                   String email,
+                   String name,
+                   String password,
+                   String phone,
+                   String saltKey,
+                   String flag
+                   ) {
         this.id = id;
         this.email = email;
         this.name = name;
@@ -114,21 +116,19 @@ public class Member {
             String email,
             String name,
             String password,
-            String phone,
-            String saltKey,
-            String flag
+            String phone
     ) {
+        String saltKey = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMddhhmmss"));
+        String flag = "Y";
         return new Member(UUID.randomUUID(), email, name, password, phone, saltKey, flag);
     }
 
-    public void updateMember(MemberCommand request) {
+    public void updateMember(MemberCommand command, String password) {
 
-        this.email = request.email();
-        this.name = request.name();
-        this.phone = request.phone();
-        this.password = request.password();
-        this.saltKey = request.saltKey();
-        this.flag = request.flag();
+        this.email = command.email();
+        this.name = command.name();
+        this.phone = command.phone();
+        this.password = password;
     }
 
 }
