@@ -1,6 +1,7 @@
 package com.example.shop.kafka.config;
 
 import com.example.shop.kafka.dto.AsyncOrderEvent;
+import org.apache.kafka.clients.admin.AdminClientConfig;
 import org.apache.kafka.clients.admin.NewTopic;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.producer.ProducerConfig;
@@ -32,6 +33,13 @@ public class AsyncKafkaConfig {
 
     @Value("${spring.kafka.consumer.group-id:async-sample-group}")
     private String consumerGroupId;
+
+    @Bean
+    public KafkaAdmin kafkaAdmin() {
+        Map<String, Object> configs = new HashMap<>();
+        configs.put(AdminClientConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
+        return new KafkaAdmin(configs);
+    }
 
     @Bean
     public ProducerFactory<String, AsyncOrderEvent> asyncOrderProducerFactory() {
